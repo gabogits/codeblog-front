@@ -1,22 +1,27 @@
 import React from "react"
-import { Link } from "gatsby"
+import Layout from "./../components/Layout"
+import usePage from "../hooks/usePage"
 
-import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
+import ListPost from "../components/ListPost"
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link> <br />
-    <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
-  </Layout>
-)
+const Home = () => {
+  const inicio = usePage()
 
-export default IndexPage
+  const { contenido, imagen, summary, titulo } = inicio[0]
+
+  return (
+    <Layout>
+      <h1>espacio </h1>
+      <div className="container">
+        <h2>{titulo}</h2>
+        <p>{summary}</p>
+        <img src={imagen.sharp.fluid.src} />
+        -----
+        <p>{contenido}</p>
+        <ListPost />
+      </div>
+    </Layout>
+  )
+}
+
+export default Home

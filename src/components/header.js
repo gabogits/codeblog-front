@@ -1,42 +1,40 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
 import React from "react"
+import { Link, useStaticQuery, graphql } from "gatsby"
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-)
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
+const Header = () => {
+  const { logo } = useStaticQuery(graphql`
+    query {
+      logo: file(relativePath: { eq: "logo1.svg" }) {
+        publicURL
+      }
+    }
+  `)
+  return (
+    <>
+      <header>
+        <div className="container container-visible container-header">
+          <div className="logo">
+            <figure>
+              <Link to="/">
+                <img src={logo.publicURL} alt="logotipo" />
+              </Link>
+            </figure>
+          </div>
+          <nav>
+            <div className="user-public">
+              <ul>
+                <li>
+                  <Link to="/acerca-de" activeClassName="pagina-actual">
+                    Acerca de{" "}
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </header>
+    </>
+  )
 }
 
 export default Header
