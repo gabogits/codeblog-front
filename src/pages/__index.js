@@ -2,7 +2,7 @@ import React from "react"
 import Layout from "./../components/Layout"
 import usePage from "../hooks/usePage"
 
-import ListPost from "../components/ListPost"
+import ListPosts from "../components/ListPosts"
 
 const Home = () => {
   const inicio = usePage()
@@ -18,7 +18,7 @@ const Home = () => {
         <img src={imagen.sharp.fluid.src} />
         -----
         <p>{contenido}</p>
-        <ListPost />
+        <ListPosts />
       </div>
     </Layout>
   )

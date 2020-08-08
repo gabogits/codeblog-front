@@ -34,11 +34,11 @@ export const query = graphql`
   }
 `
 
-const Post = ({
-  data: {
-    post: { nodes },
-  },
-}) => {
+const Post = (props) => {
+
+  const post = props.data.post.nodes
+  const { currentPage, numPages } = props.pageContext
+
   const {
     title,
     description,
@@ -46,7 +46,7 @@ const Post = ({
     created_at,
     categories,
     codesection,
-  } = nodes[0]
+  } = post[0]
 
   
   return (

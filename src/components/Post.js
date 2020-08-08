@@ -12,13 +12,13 @@ const Post = ({ post }) => {
   return (
     <li className="item-list">
       <figure className="item-list-img">
-        <Link to={urlSlug(title)}>
+        <Link to={'/'+urlSlug(title)}>
           {image && image.sharp ? <Image fluid={image.sharp.fluid} /> : null}
         </Link>
       </figure>
 
       <div className="item-list-txt">
-        <Link to={urlSlug(title)}>
+        <Link to={'/'+urlSlug(title)}>
           <h3>{title}</h3>
         </Link>
         <p>{description.substr(0, 200)}...</p>
