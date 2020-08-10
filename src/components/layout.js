@@ -2,6 +2,12 @@ import React from "react"
 import Header from "./Header"
 import Footer from "./Footer"
 import { Helmet } from "react-helmet"
+import "./../assets/css/reset.css"
+import "./../assets/css/base.css"
+import "./../assets/css/forms.css"
+import "./../assets/css/large-devices.css"
+import "./../assets/css/medium-devices.css"
+import "./../assets/css/small-devices.css"
 
 const Layout = ({ children }) => {
   return (
@@ -9,7 +15,12 @@ const Layout = ({ children }) => {
       <Helmet>
         <link rel="icon" href="favicon.ico" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap"
+          rel="stylesheet"
+        />
+
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap"
           rel="stylesheet"
         />
         <meta
@@ -18,8 +29,6 @@ const Layout = ({ children }) => {
         />
         <meta name="description" content="Libreria de codigo" />
         <title>Blog code </title>
-        <link href="/assets/css/reset.css" rel="stylesheet" />
-        <link href="/assets/css/base.css" rel="stylesheet" />
       </Helmet>
 
       <main className="top-bottom-space">

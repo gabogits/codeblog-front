@@ -26,32 +26,51 @@ export const { posts } = graphql`
   }
 `
 const ListPosts = props => {
-  console.log(props)
   const posts = props.data.posts.nodes
   const { currentPage, numPages } = props.pageContext
   const isFirst = currentPage === 1
   const isLast = currentPage === numPages
-  const prevPage = currentPage - 1 === 1? "/" : "/"+ (currentPage - 1).toString()
-  const nextPage = "/"+ (currentPage + 1).toString()
-
+  const prevPage =
+    currentPage - 1 === 1
+      ? "/archivo"
+      : "/archivo/" + (currentPage - 1).toString()
+  const nextPage = "/archivo/" + (currentPage + 1).toString()
   return (
     <Layout>
-      <div className="list-post">
-        {posts.map(post => (
-          <Post key={post.id} post={post} />
-        ))}
-      </div>
-      <div class="paginator">
-        {!isFirst && <Link to={prevPage} rel="prev">← Previous Page</Link>}
-        <ul>
-          {Array.from({ length: numPages }, (_, i) => (
-            <li>
-              <Link to={`/${i === 0 ? "" : i + 1}`}>{i + 1}</Link>
-            </li>
-          ))}
-        </ul>
-        {!isLast && <Link to={nextPage} rel="next">Next Page →</Link>}
-      </div>
+      <section className="modu">
+        <div className="container">
+          <div className="box-title ">
+            <h2>Archivo </h2>
+          </div>
+          <div className="last-post list-post">
+            {posts.map(post => (
+              <Post key={post.id} post={post} />
+            ))}
+          </div>
+          <div className="paginator">
+            {!isFirst && (
+              <Link to={prevPage} rel="prev">
+                ← Anterior
+              </Link>
+            )}
+            <ul>
+              {Array.from({ length: numPages }, (_, i) => (
+                <li key={`pagination-number${i + 1}`}>
+                  <Link to={`${i === 0 ? "/archivo/" : "/archivo/" + (i + 1)}`}>
+                    {i + 1}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            {!isLast && (
+              <Link to={nextPage} rel="next">
+                {" "}
+                Siguiente →
+              </Link>
+            )}
+          </div>
+        </div>
+      </section>
     </Layout>
   )
 }

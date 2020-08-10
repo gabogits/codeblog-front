@@ -34,10 +34,8 @@ export const query = graphql`
   }
 `
 
-const Post = (props) => {
-
-  const post = props.data.post.nodes
-  const { currentPage, numPages } = props.pageContext
+const Post = props => {
+  const post = props.data.post.nodes[0]
 
   const {
     title,
@@ -46,29 +44,35 @@ const Post = (props) => {
     created_at,
     categories,
     codesection,
-  } = post[0]
+  } = post
 
-  
   return (
     <Layout>
+      <section className="modu">
+        
       <div className="container">
         <div className="post-detail">
+        <div className="box-title ">
+          
           <h3>{title}</h3>
-          <figure>
-            {image && image.sharp ? <Image fluid={image.sharp.fluid} /> : null}
-          </figure>
-          <div> {description}</div>
-          <Highlight language="javascript"> {codesection}</Highlight>
+         
+          </div>
+          {image && image.sharp && <figure> <Image fluid={image.sharp.fluid} /> </figure>}
+          <div className="description"> {description}</div>
+          <Highlight language="javascript" className="code-section"> {codesection}</Highlight>
 
-          <span className="item-list-date">{format(created_at, "es_ES")} </span>
-
+          
+        <div className="info-tags">
           <ul>
             {categories.map(tag => (
               <li key={tag.nombre}>{tag.nombre}</li>
             ))}
           </ul>
+          </div>
+          <span className="item-list-date">{format(created_at, "es_ES")} </span>
         </div>
       </div>
+      </section>
     </Layout>
   )
 }

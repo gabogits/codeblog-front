@@ -9,13 +9,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           id
         }
       }
-
-      allStrapiPaginas {
-        nodes {
-          id
-          titulo
-        }
-      }
     }
   `)
 
@@ -25,15 +18,13 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   // console.log(JSON.stringify(result.data.allStrapiPost))
   const posts = result.data.allStrapiPost.nodes
-  const pages = result.data.allStrapiPaginas.nodes
 
   const postPerPage = 3
 
   const numPages = Math.ceil(posts.length / postPerPage)
-  console.log(numPages)
   Array.from({ length: numPages }).forEach((_, i) => {
     actions.createPage({
-      path: i === 0 ? `/` : `/${i + 1}`,
+      path: i === 0 ? `/archivo` : `/archivo/${i + 1}`,
       component: require.resolve("./src/components/ListPosts.js"),
       context: {
         limit: postPerPage,
@@ -43,7 +34,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       },
     })
   })
-  console.log(posts)
+
   posts.forEach(post => {
     actions.createPage({
       path: urlSlug(post.title),
@@ -54,13 +45,5 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     })
   })
 
-  pages.forEach(page => {
-    actions.createPage({
-      path: urlSlug(page.titulo),
-      component: require.resolve("./src/components/Pagina.js"),
-      context: {
-        id: page.id,
-      },
-    })
-  })
+  
 }
