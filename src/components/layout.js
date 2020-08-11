@@ -8,16 +8,16 @@ import "./../assets/css/forms.css"
 import "./../assets/css/large-devices.css"
 import "./../assets/css/medium-devices.css"
 import "./../assets/css/small-devices.css"
+import "./../assets/css/atom-one-dark.css"
+
+
 
 const Layout = ({ children }) => {
   return (
     <>
       <Helmet>
         <link rel="icon" href="favicon.ico" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap"
-          rel="stylesheet"
-        />
+   
 
         <link
           href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap"
@@ -27,8 +27,8 @@ const Layout = ({ children }) => {
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
         />
-        <meta name="description" content="Libreria de codigo" />
-        <title>Blog code </title>
+        <meta name="description" content="Librerias de codigo reutilizable" />
+        <title>Mi repo</title>
       </Helmet>
 
       <main className="top-bottom-space">

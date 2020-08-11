@@ -12,17 +12,16 @@ const Home = ({
   const inicio = usePage()
 
   const { contenido, imagen, summary, titulo } = inicio[0]
-  const lastPost = nodes
+  const lastPost = nodes;
   return (
     <Layout>
-      <section className="modu banner gray-back-1">
+      <section className="modu banner black-back-1">
         <div className="container banner-container">
           <div className="banner-txt">
-            <h2>Un monton de código</h2>
-            <h4>Nunca habia sido tan facil como hacer copi paste</h4>
+            <h2>{titulo}</h2>
+            <h4>{summary}.</h4>
             <p>
-              Este blog incluye codigo JS, React, Gatsby, Graphql, next,
-              firebase etc
+              {contenido}
             </p>
           </div>
           <figure className="banner-img">
@@ -34,12 +33,14 @@ const Home = ({
       <section className="modu">
         <div className="container">
           <div className="box-title ">
-            <h2>Ultimos codigos </h2>
+            <h2>Ultimos códigos </h2>
           </div>
           <div className="last-post list-post">
+            <ul>
             {lastPost.map(post => (
               <Post key={post.id} post={post} />
             ))}
+            </ul>
           </div>
         </div>
       </section>
@@ -49,11 +50,11 @@ const Home = ({
 
 export const { lastPost } = graphql`
   query {
-    lastPost: allStrapiPost(skip: 0, limit: 5) {
+    lastPost: allStrapiPost(skip: 0, limit: 4, sort: {order: DESC, fields: id}) {
       nodes {
         image {
           sharp: childImageSharp {
-            fluid(maxWidth: 250) {
+            fluid(maxWidth: 500) {
               ...GatsbyImageSharpFluid_withWebp
             }
           }

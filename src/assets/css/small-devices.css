@@ -1,10 +1,4 @@
 @media (max-width: 380px) {
-  .banner-txt {
-    padding: 20px 15px;
-  }
-  .banner-txt h2 br {
-    display: block;
-  }
   .banner-txt h2 {
     font-size: 20px;
     line-height: 28px;

@@ -11,11 +11,11 @@ const Post = ({ post }) => {
 
   return (
     <li className="item-list">
-      <figure className="item-list-img">
+      {image && image.sharp ?  <figure className="item-list-img">
         <Link to={'/'+urlSlug(title)}>
-          {image && image.sharp ? <Image fluid={image.sharp.fluid}  alt="image"  /> : null}
+          <Image fluid={image.sharp.fluid}  alt="image"  /> 
         </Link>
-      </figure>
+  </figure> : <div></div>}
 
       <div className="item-list-txt">
       <h3><Link to={'/'+urlSlug(title)}>

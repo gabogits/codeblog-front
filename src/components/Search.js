@@ -3,9 +3,9 @@ import { Link } from "gatsby"
 import UsePosts from "../hooks/usePosts"
 import urlSlug from "url-slug"
 
-const Search = () => {
-  const posts = UsePosts()
+const Search = ({openSearch}) => {
 
+  const posts = UsePosts()
   const [search, setSearch] = useState("")
   const [results, setResults] = useState([])
 
@@ -26,10 +26,13 @@ const Search = () => {
   }, [search])
 
   return (
-    <div className="search-field">
+    <>
+    <div className={`search-field ${openSearch && 'active'  }`} >
       <div className="field-search">
+        <button className="close-search"  onClick={() => setSearch("")} aria-label="close" ></button>
         <input type="text" value={search} onChange={e => getResults(e)} />
       </div>
+      {search && 
       <ul>
         {results.map(post => (
           <li key={post.id}>
@@ -40,7 +43,10 @@ const Search = () => {
           </li>
         ))}
       </ul>
+      }
     </div>
+    {search && <div className="screen" onClick={() => setSearch("")} onKeyDown={() => setSearch("")} tabIndex="0" role="button" aria-label="close"></div> }
+    </>
   )
 }
 

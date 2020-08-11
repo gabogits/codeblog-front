@@ -5,11 +5,11 @@ import Layout from "./Layout"
 import { Link, graphql } from "gatsby"
 export const { posts } = graphql`
   query($skip: Int!, $limit: Int!) {
-    posts: allStrapiPost(skip: $skip, limit: $limit) {
+    posts: allStrapiPost(skip: $skip, limit: $limit, sort: {order: DESC, fields: id}) {
       nodes {
         image {
           sharp: childImageSharp {
-            fluid(maxWidth: 250) {
+            fluid(maxWidth: 500) {
               ...GatsbyImageSharpFluid_withWebp
             }
           }
@@ -56,7 +56,7 @@ const ListPosts = props => {
             <ul>
               {Array.from({ length: numPages }, (_, i) => (
                 <li key={`pagination-number${i + 1}`}>
-                  <Link to={`${i === 0 ? "/archivo/" : "/archivo/" + (i + 1)}`}>
+                  <Link to={`${i === 0 ? "/archivo/" : "/archivo/" + (i + 1)}`} activeClassName="pagina-actual">
                     {i + 1}
                   </Link>
                 </li>
@@ -74,5 +74,8 @@ const ListPosts = props => {
     </Layout>
   )
 }
+
+
+
 
 export default ListPosts

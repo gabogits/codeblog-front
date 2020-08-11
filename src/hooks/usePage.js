@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from "gatsby"
 const usePage = () => {
   const { pagina } = useStaticQuery(graphql`
     query {
-      pagina: allStrapiPaginas(filter: { titulo: { eq: "Inicio" } }) {
+      pagina: allStrapiPaginas(filter: { titulo: { eq: "Repositorio de código reutilizable" } }) {
         nodes {
           contenido
           id
@@ -11,7 +11,7 @@ const usePage = () => {
           summary
           imagen {
             sharp: childImageSharp {
-              fluid(maxWidth: 500) {
+              fluid(maxWidth: 1200) {
                 ...GatsbyImageSharpFluid_withWebp
               }
             }

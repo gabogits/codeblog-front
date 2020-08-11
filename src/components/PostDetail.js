@@ -4,7 +4,7 @@ import Image from "gatsby-image"
 import { format, register } from "timeago.js"
 import { localeFunc } from "./../helpers/"
 import Highlight from "react-highlight"
-import "highlight.js/styles/atelier-cave.dark.css"
+
 
 import { graphql } from "gatsby"
 
@@ -16,7 +16,7 @@ export const query = graphql`
       nodes {
         image {
           sharp: childImageSharp {
-            fluid(maxWidth: 250) {
+            fluid(maxWidth: 1000) {
               ...GatsbyImageSharpFluid_withWebp
             }
           }
@@ -59,7 +59,7 @@ const Post = props => {
           </div>
           {image && image.sharp && <figure> <Image fluid={image.sharp.fluid} /> </figure>}
           <div className="description"> {description}</div>
-          <Highlight language="javascript" className="code-section"> {codesection}</Highlight>
+          <Highlight language="javascript" className="code-section">{codesection}</Highlight>
 
           
         <div className="info-tags">
