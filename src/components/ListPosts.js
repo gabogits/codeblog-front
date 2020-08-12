@@ -5,7 +5,7 @@ import Layout from "./Layout"
 import { Link, graphql } from "gatsby"
 export const { posts } = graphql`
   query($skip: Int!, $limit: Int!) {
-    posts: allStrapiPost(skip: $skip, limit: $limit, sort: {order: DESC, fields: id}) {
+    posts: allStrapiPost(skip: $skip, limit: $limit, sort: {order: DESC, fields: created_at}) {
       nodes {
         image {
           sharp: childImageSharp {

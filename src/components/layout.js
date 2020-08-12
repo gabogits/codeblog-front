@@ -27,7 +27,7 @@ const Layout = ({ children }) => {
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
         />
-        <meta name="description" content="Librerias de codigo reutilizable" />
+        <meta name="description" content="Repositorio de código reutilizable" />
         <title>Mi repo</title>
       </Helmet>
 
@@ -41,8 +41,3 @@ const Layout = ({ children }) => {
 }
 
 export default Layout
-
-/*
-
-        
-*/

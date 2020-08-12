@@ -1,3 +1,8 @@
+@media (max-width: 600px) {
+  .code-section {
+    padding: 20px !important;
+  }
+}
 @media (max-width: 380px) {
   .banner-txt h2 {
     font-size: 20px;

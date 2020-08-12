@@ -15,7 +15,7 @@ const Home = ({
   const lastPost = nodes;
   return (
     <Layout>
-      <section className="modu banner black-back-1">
+      <section className="banner black-back-1">
         <div className="container banner-container">
           <div className="banner-txt">
             <h2>{titulo}</h2>
@@ -50,7 +50,7 @@ const Home = ({
 
 export const { lastPost } = graphql`
   query {
-    lastPost: allStrapiPost(skip: 0, limit: 4, sort: {order: DESC, fields: id}) {
+    lastPost: allStrapiPost(skip: 0, limit: 3, sort: {order: DESC, fields: created_at}) {
       nodes {
         image {
           sharp: childImageSharp {

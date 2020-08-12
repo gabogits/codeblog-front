@@ -21,7 +21,7 @@ const Post = ({ post }) => {
       <h3><Link to={'/'+urlSlug(title)}>
           {title}
         </Link></h3>
-        <p>{description.substr(0, 300)}...</p>
+        <p><Link to={'/'+urlSlug(title)}>{description.substr(0, 200)}...</Link></p>
 
        
         <span className="item-list-date">{format(created_at, "es_ES")} </span>
