@@ -2,6 +2,9 @@
   .code-section {
     padding: 20px !important;
   }
+  .search-field ul li p {
+    display: none;
+  }
 }
 @media (max-width: 380px) {
   .banner-txt h2 {

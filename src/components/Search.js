@@ -38,7 +38,7 @@ const Search = ({openSearch}) => {
           <li key={post.id}>
           
               <h3> <Link to={"/" + urlSlug(post.title)}>{post.title}</Link></h3>
-              <p> <Link to={"/" + urlSlug(post.title)}>{post.description.substr(0, 60)}... </Link></p>
+              <p> <Link to={"/" + urlSlug(post.title)}>{post.description.substr(0, 100)} </Link></p>
            
           </li>
         ))}
