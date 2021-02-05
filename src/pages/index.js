@@ -3,7 +3,7 @@ import Layout from "./../components/Layout"
 import Post from "./../components/Post"
 import usePage from "../hooks/usePage"
 import { graphql } from "gatsby"
-
+import ReactMarkdown from "react-markdown"
 const Home = ({
   data: {
     lastPost: { nodes },
@@ -21,9 +21,9 @@ const Home = ({
           <div className="banner-txt">
             <h2>{titulo}</h2>
             <h4>{summary}.</h4>
-            <p>
+            <ReactMarkdown>
               {contenido}
-            </p>
+            </ReactMarkdown>
           </div>
           <figure className="banner-img">
             <img src={imagen.sharp.fluid.src} alt="banner" />

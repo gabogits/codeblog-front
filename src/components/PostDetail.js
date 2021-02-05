@@ -4,7 +4,7 @@ import Image from "gatsby-image"
 import { format, register } from "timeago.js"
 import { localeFunc } from "./../helpers/"
 import Highlight from "react-highlight"
-
+import ReactMarkdown from "react-markdown"
 
 import { graphql } from "gatsby"
 
@@ -58,7 +58,8 @@ const Post = props => {
          
           </div>
           {image && image.sharp && <figure> <Image fluid={image.sharp.fluid} /> </figure>}
-          <div className="description"> {description}</div>
+          <div className="description"> 
+          <ReactMarkdown>{description}</ReactMarkdown></div>
           <Highlight language="javascript" className="code-section">{codesection}</Highlight>
 
           

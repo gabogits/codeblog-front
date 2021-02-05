@@ -4,6 +4,7 @@ import { localeFunc } from "./../helpers/"
 import { Link } from "gatsby"
 import Image from "gatsby-image"
 import urlSlug from "url-slug"
+import ReactMarkdown from "react-markdown"
 register("es_ES", localeFunc)
 
 const Post = ({ post }) => {
@@ -21,7 +22,13 @@ const Post = ({ post }) => {
       <h3><Link to={'/'+urlSlug(title)}>
           {title}
         </Link></h3>
-        <p><Link to={'/'+urlSlug(title)}>{description.substr(0, 250)}...</Link></p>
+        <p>
+        <Link to={'/'+urlSlug(title)}>
+        <ReactMarkdown source={description.substr(0, 250).concat("...")} />
+
+      
+        </Link>
+        </p>
 
        
         <span className="item-list-date">{format(createdAt, "es_ES")} </span>
