@@ -7,7 +7,7 @@ import urlSlug from "url-slug"
 register("es_ES", localeFunc)
 
 const Post = ({ post }) => {
-  const { title, description, image, created_at } = post
+  const { title, description, image, createdAt } = post
 
   return (
     <li className="item-list">
@@ -21,10 +21,10 @@ const Post = ({ post }) => {
       <h3><Link to={'/'+urlSlug(title)}>
           {title}
         </Link></h3>
-        <p><Link to={'/'+urlSlug(title)}>{description.substr(0, 200)}...</Link></p>
+        <p><Link to={'/'+urlSlug(title)}>{description.substr(0, 250)}...</Link></p>
 
        
-        <span className="item-list-date">{format(created_at, "es_ES")} </span>
+        <span className="item-list-date">{format(createdAt, "es_ES")} </span>
       </div>
     </li>
   )

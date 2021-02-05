@@ -18,7 +18,8 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   // console.log(JSON.stringify(result.data.allStrapiPost))
   const posts = result.data.allStrapiPost.nodes
-
+  console.log(result);
+  console.log(posts);
   const postPerPage = 3
 
   const numPages = Math.ceil(posts.length / postPerPage)

@@ -13,6 +13,7 @@ const Home = ({
 
   const { contenido, imagen, summary, titulo } = inicio[0]
   const lastPost = nodes;
+  console.log(lastPost)
   return (
     <Layout>
       <section className="banner black-back-1">
@@ -50,7 +51,7 @@ const Home = ({
 
 export const { lastPost } = graphql`
   query {
-    lastPost: allStrapiPost(skip: 0, limit: 3, sort: {order: DESC, fields: created_at}) {
+    lastPost: allStrapiPost(skip: 0, limit: 3, sort: {order: DESC, fields: createdAt}) {
       nodes {
         image {
           sharp: childImageSharp {
@@ -63,7 +64,7 @@ export const { lastPost } = graphql`
         categories {
           nombre
         }
-        created_at(fromNow: false)
+        createdAt(fromNow: false)
         description
         id
       }

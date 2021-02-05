@@ -5,7 +5,7 @@ import Layout from "./Layout"
 import { Link, graphql } from "gatsby"
 export const { posts } = graphql`
   query($skip: Int!, $limit: Int!) {
-    posts: allStrapiPost(skip: $skip, limit: $limit, sort: {order: DESC, fields: created_at}) {
+    posts: allStrapiPost(skip: $skip, limit: $limit, sort: {order: DESC, fields: createdAt}) {
       nodes {
         image {
           sharp: childImageSharp {
@@ -18,7 +18,7 @@ export const { posts } = graphql`
         categories {
           nombre
         }
-        created_at(fromNow: false)
+        createdAt(fromNow: false)
         description
         id
       }

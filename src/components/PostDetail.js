@@ -26,7 +26,7 @@ export const query = graphql`
         categories {
           nombre
         }
-        created_at(fromNow: false)
+        createdAt(fromNow: false)
         description
         id
       }
