@@ -18,7 +18,7 @@ module.exports = {
     {
       resolve:'gatsby-source-strapi',
       options: {
-        apiURL: 'https://strapi-mongo-heroku.herokuapp.com/',
+        apiURL: 'https://strapi-mongo-heroku.herokuapp.com',
         queryLimit: 1000,
         contentTypes: ['post', 'paginas', 'categorias']
       }
