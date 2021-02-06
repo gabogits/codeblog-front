@@ -420,3 +420,10 @@ footer p {
   color: #718096;
   text-align: center;
 }
+.description p {
+    margin: 0 0 20px;
+}
+
+.description h4 {
+    margin: 0 0 20px;
+}
